@@ -43,7 +43,7 @@ const Login = () => {
         {/* Full Name Field (Only for Sign Up) */}
         {!isLogin && (
           <div className='border px-6 py-2 flex items-center gap-2 rounded-full mt-4'>
-            <img src={assets.profile_icon} alt="" className='h-5'  />
+            <img src={assets.profile_icon} alt="" className='h-5' />
             <input
               type="text"
               className='outline-none text-sm flex-1'
@@ -66,7 +66,7 @@ const Login = () => {
 
         {/* Password Field */}
         <div className='border px-6 py-2 flex items-center gap-2 rounded-full mt-4'>
-          <img src={assets.lock_icon} alt=""  />
+          <img src={assets.lock_icon} alt="" />
           <input
             type="password"
             className='outline-none text-sm flex-1'

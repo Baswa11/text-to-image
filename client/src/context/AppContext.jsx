@@ -3,8 +3,8 @@ import { createContext, useState } from "react"
 export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
-  const [user, setUser] = useState(true)
-  const [showLogin, setShowLogin] = useState(false);
+  const [user, setUser] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
   const value = {
     user,
     setUser,

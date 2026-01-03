@@ -7,7 +7,7 @@ import { useContext } from 'react'
  
 const Navbar = () => {
     // const [user, setUser] = useState(null)
-    const {user} = useContext(AppContext)
+    const {user, setUser} = useContext(AppContext)
     const navigate = useNavigate()
   return (
     <div className='flex justify-between items-center py-4'>
@@ -36,7 +36,7 @@ const Navbar = () => {
             : 
             <div className='flex items-center gap-4 sm:gap-5'>
                 <p onClick={() => navigate('/buy-credit')} className='cursor-pointer'>Pricing</p>
-                <button className='bg-zinc-800 text-white px-7 py-2 sm:px-10 text-sm rounded-full '>Login</button>
+                <button onClick={()=>setShowLogin(true)} className='bg-zinc-800 text-white px-7 py-2 sm:px-10 text-sm rounded-full '>Login</button>
             </div>
             }
         </div>
