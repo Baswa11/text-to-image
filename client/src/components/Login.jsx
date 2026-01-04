@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { assets } from '../assets/assets'
 import { AppContext } from '../context/AppContext'
+import { motion } from 'framer-motion'
 
 const Login = () => {
   const [state, setState] = useState('Login')
@@ -25,7 +26,12 @@ const Login = () => {
 
   return (
     <div className='absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
-      <form className='relative bg-white p-10 rounded-xl text-slate-500'>
+      <motion.form
+        initial={{ opacity: 0.2, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        viewport={{ once: true }}
+        className='relative bg-white p-10 rounded-xl text-slate-500'>
         {/* Close Button */}
         <img
           onClick={handleClose}
@@ -110,7 +116,7 @@ const Login = () => {
             </span>
           </p>
         )}
-      </form>
+      </motion.form>
     </div>
   )
 }
