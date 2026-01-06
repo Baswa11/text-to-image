@@ -7,3 +7,5 @@ const imageRouter = express.Router()
 imageRouter.post('/generate', userAuth, generateImage)
 
 export default imageRouter
+
+//localhost:3000/api/image/generate

@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-import { useContext } from 'react'
-// import { useState } from 'react'
 
 const Navbar = () => {
-    // const [user, setUser] = useState(null)
-    const { user, setUser, setShowLogin } = useContext(AppContext)
+    const { user, setShowLogin, logout, credit } = useContext(AppContext)
     const navigate = useNavigate()
     return (
         <div className='flex justify-between items-center py-4'>
@@ -16,16 +13,16 @@ const Navbar = () => {
                 {
                     user ?
                         <div className='flex items-center gap-2 sm:gap-3'>
-                            <button onClick={() => navigate('/buy-credit')} className='flex item-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>
+                            <button onClick={() => navigate('/buy-credit')} className='flex gap-2 items-center bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>
                                 <img className='w-5 ' src={assets.credit_star} alt="" />
-                                <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits Left: 100</p>
+                                <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits Left: {credit}</p>
                             </button>
-                            <p className='text-gray-600 max-sm:hidden pl-4'>Hi username</p>
+                            <p className='text-gray-600 max-sm:hidden pl-4'>Hi {user.name}</p>
                             <div className='relative group'>
                                 <img src={assets.profile_icon} className='w-10 drop-shadow' alt="" />
                                 <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12'>
                                     <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
-                                        <li className='py-1 px-2 pr-10 cursor-pointer'>
+                                        <li onClick={logout} className='py-1 px-2 pr-10 cursor-pointer'>
                                             Logout
                                         </li>
                                     </ul>
